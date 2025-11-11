@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Web Viewer</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 2% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            height: 90%;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
+        
+        .close:hover {
+            color: black;
+        }
+        
+        .modal iframe {
+            width: 100%;
+            height: calc(100% - 60px);
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .link-button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007acc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .link-button:hover {
+            background-color: #005999;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modal Web Viewer</h1>
+    
+    <button class="link-button" onclick="openModal('https://www.home-assistant.io/')">
+        Open Home Assistant
+    </button>
+    
+    <button class="link-button" onclick="openModal('https://randomnerdtutorials.com/getting-started-with-esp32/')">
+        Open ESP32 Tutorial
+    </button>
+    
+    <a href="https://dm5web.itg.ti.com/operations/logbooksearch.aspx" target="_blank" class="link-button">
+        Open DMOS5 Logbook (External)
+    </a>
+    
+    <!-- Modal -->
+    <div id="webModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <iframe id="modalFrame" src=""></iframe>
+        </div>
+    </div>
+    
+    <script>
+        function openModal(url) {
+            document.getElementById('modalFrame').src = url;
+            document.getElementById('webModal').style.display = 'block';
+        }
+        
+        function closeModal() {
+            document.getElementById('webModal').style.display = 'none';
+            document.getElementById('modalFrame').src = '';
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById('webModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

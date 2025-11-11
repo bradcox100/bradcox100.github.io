@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grumpyscorners</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #96C2DB 0%, #E5EDF1 50%, #FFFFFF 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: black;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.0em;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: black;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 5px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px; /* Adjust spacing between divs as needed */
+        }
+        
+        .link-card {
+            display: block;
+            padding: 12px;
+            background: white;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #007acc, #28a745);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .link-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .link-title {
+            font-size: 1.0em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #007acc;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .link-description {
+            color: #666;
+            font-size: 0.95em;
+            line-height: 1.0;
+            margin-bottom: 15px;
+        }
+        
+        .link-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85em;
+            color: #999;
+        }
+        
+        .link-category {
+            background: #f0f8ff;
+            color: #007acc;
+            padding: 2px 4px;
+            border-radius: 15px;
+            font-weight: 500;
+        }
+        
+        .external-icon {
+            font-size: 1.2em;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .link-card:hover .external-icon {
+            opacity: 1;
+        }
+        
+        .work-category { background: #e3f2fd; color: #1976d2; }
+        .home-category { background: #e8f5e8; color: #2e7d32; }
+        .other-category { background: #fff3e0; color: #f57c00; }
+        
+        @media (max-width: 768px) {
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.0em;
+            }
+            
+            .section-title {
+                font-size: 0.5em;
+            }
+            
+            .link-card {
+                padding: 20px;
+            }
+        }
+        
+        /* Loading animation */
+        .link-card:active {
+            transform: translateY(-2px);
+            transition: transform 0.1s ease;
+        }
+        
+        /* Accessibility improvements */
+        .link-card:focus {
+            outline: 3px solid rgba(255,255,255,0.5);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grumpy's Corner</h1>
+        
+        <!-- Work Section -->
+        <div class="section">
+            <h2 class="section-title">🏢Resources</h2>
+            <div class="links-grid">
+                <a href="links.html" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Links
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Links that are useful to me.
+                    </div>
+                </a>
+                
+                <!-- <a href="http://online.corp.ti.com/log" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Corporate Logbook
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Main corporate logbook system for recording and tracking operational activities.
+                    </div>
+                    <div class="link-meta">
+                        <span class="link-category work-category">Logging</span>
+                        <span>Internal System</span>
+                    </div>
+                </a>
+                
+                <a href="https://spse.itg.ti.com/sites/facopsnc/dmos5/SitePages/Team%20Pages/OperationsTeam.aspx" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Operations Team Portal
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Access team resources, schedules, and collaborative tools for the operations team.
+                    </div>
+                    <div class="link-meta">
+                        <span class="link-category work-category">Team</span>
+                        <span>SharePoint</span>
+                    </div>
+                </a>
+                
+                <a href="http://fms.itg.ti.com/fms/wolist" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Facility Management System
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Track and manage facility work orders, maintenance requests, and asset management.
+                    </div>
+                    <div class="link-meta">
+                        <span class="link-category work-category">Facilities</span>
+                        <span>Work Orders</span>
+                    </div>
+                </a>
+                
+                <a href="https://fis.itg.ti.com/default.aspx?source=17" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Permit Manager
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Manage facility permits, safety documentation, and compliance tracking.
+                    </div>
+                    <div class="link-meta">
+                        <span class="link-category work-category">Safety</span>
+                        <span>Permits</span>
+                    </div>
+                </a>
+                
+                <a href="https://lelnxtc204.itg.ti.com/permitsignin/" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Permit Sign-In System
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Electronic sign-in system for contractors and visitors requiring facility permits.
+                    </div>
+                    <div class="link-meta">
+                        <span class="link-category work-category">Access</span>
+                        <span>Sign-In</span>
+                    </div>
+                </a>
+                
+                <a href="http://people.itg.ti.com/cgi-bin/DS/index.cgi" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Directory Services
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Corporate directory for finding employee contact information and organizational structure.
+                    </div>
+                    <div class="link-meta">
+                        <span class="link-category work-category">Directory</span>
+                        <span>Contact Info</span>
+                    </div>-->
+                </a> 
+            </div>
+        </div>
+        
+        <!-- Home Assistant Section -->
+        <div class="section">
+            <h2 class="section-title">🏠 Home Assistant Resources</h2>
+            <div class="links-grid">
+                <a href="https://www.home-assistant.io/" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Home Assistant
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Open source home automation platform that puts local control and privacy first.
+                    </div>
+                </a>
+                
+                <a href="https://developers.home-assistant.io/" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Developer Documentation
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Comprehensive development documentation for creating custom components and integrations.
+                    </div>
+                </a>
+                
+                <a href="https://www.home-assistant.io/docs/configuration/templating" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Templating Guide
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Learn how to use Jinja2 templating to create dynamic automations and configurations.
+                    </div>
+                </a>
+                
+                <a href="https://nodered.org/" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Node-RED
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Flow-based programming tool for wiring together hardware devices, APIs, and online services.
+                    </div>
+                </a>
+                
+                <a href="https://jinja.palletsprojects.com/en/latest/templates/" target="_blank" class="link-card">
+                    <div class="link-title">
+                        Jinja2 Template Designer
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Official Jinja2 documentation for template design and advanced templating techniques.
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Other Resources Section -->
+        <div class="section">
+            <h2 class="section-title">🔧 Other Development Resources</h2>
+            <div class="links-grid">
+                <a href="https://randomnerdtutorials.com/getting-started-with-esp32/" target="_blank" class="link-card">
+                    <div class="link-title">
+                        ESP32 Getting Started
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        Comprehensive tutorial for getting started with ESP32 microcontroller development and programming.
+                    </div>
+                </a>
+                
+                <a href="https://esphome.io/index.html" target="_blank" class="link-card">
+                    <div class="link-title">
+                        ESPHome
+                        <span class="external-icon">↗</span>
+                    </div>
+                    <div class="link-description">
+                        System to control ESP8266/ESP32 microcontrollers with simple YAML configuration files.
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.link-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+
+        // Add click analytics (optional)
+        document.querySelectorAll('.link-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('.link-title').textContent.trim();
+                console.log(`Clicked on: ${title}`);
+                // You could send analytics data here if needed
+            });
+        });
+    </script>
+</body>
+</html>

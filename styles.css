@@ -1,0 +1,48 @@
+/* TITLE TEXT */
+h1 {
+    color: black;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.0em;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #96C2DB 0%, #E5EDF1 50%, #FFFFFF 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* TABLE ROWS & CELLS */
+th, td {
+    border: 1px solid black;
+    padding: 2.5px;
+    text-align: left;
+}
+
+/* Set a subtle background color for TABLE HEADER. Change the hex to your preferred color. */
+th {
+    background-color: #3c70a3;
+    /* Header text color — change this if you prefer a different color */
+    color: #ffffff;
+    font-weight: bold;
+    width: 30%;
+    text-align: center;
+    padding: 5px;
+}
+
+/* ALTERNATING ROW COLORS */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
